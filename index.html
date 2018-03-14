@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <h1>Road Survey Tool</h1>
+
+    <div style="width:100%;height:100px"></div>
+    <div id="map"></div>
+    <div style="width:100%;height:200px"></div>
+
+    <script src="scripts/map.js"></script> <!--Initialise the map object-->
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9e944TTsuLO4ffAAaBA_1KR6NCHXZKW4&callback=initMap"
+    type="text/javascript"></script> <!--Google Map API Key-->
+
+  </body>
+</html>
