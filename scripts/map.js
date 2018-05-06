@@ -5,20 +5,17 @@
 function initMap() { // initialise the google.maps Map object 
     var zoom = 14; // zoom level of the map
     var dist = 1; // distance in km one side of the square
-    var ourClassroom = {lat: -37.911223, lng: 145.130768}; // latitude and longitude location/coordinates
+    var classroomLatLng = {lat: -37.911223, lng: 145.130768}; // latitude and longitude location/coordinates
     var map = new google.maps.Map(document.getElementById('map'), { // initialise a new Map object
         zoom: zoom,
-        center: ourClassroom
+        center: classroomLatLng
     });
-    var activeMarkers = []; // list of markers active on the map, used for clearing map on new selection
     var activeSquare = new google.maps.Polygon({}); // square currently active on map
 
     // event listener for user clicking a location on the map
-    // clears existing markers and polygon
-    // generates a square and places markers in each corner    
-    google.maps.event.addListener(map, 'click', function(event) {
-        
-        activeMarkers = deleteMarkers(activeMarkers); // remove all markers and clear list
+    // clears existing polygon
+    // generates a square on the map of size user selects 
+    google.maps.event.addListener(map, 'click', function(event) {        
         activeSquare.setMap(null); // clear active square polygon from map
 
         var squarePoints = []; // list of points that make up the square
@@ -26,12 +23,8 @@ function initMap() { // initialise the google.maps Map object
 
         var squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
 
-        
-        activeMarkers = generateMarkers(squarePoints, map); // generate the markers on the map and store object to clear later       
         activeSquare = generatePolygon(squarePoints, map); // generate the square on the map and store object to clear later
     });
-
-
 };
 
 
@@ -71,37 +64,6 @@ function generatePolygon(polygonPoints, map){
           fillOpacity: 0.35
         });
     poly.setMap(map); // activate on map
-    return poly;
-}
 
-
-/* generateMarkers()
-* points - list of points that will have markers created at
-* map - google.maps Map object to render markers to 
-*
-* returns a list of the created marker objects
-*/
-function generateMarkers(points, map){
-    var outputMarkers = [];
-    for (var i = 0; i < points.length; i++) { // for each point in the square, make a marker
-        var marker = new google.maps.Marker({ // initialise a new marker
-            position: points[i], // at pos from list argument
-            map: map // map object to render marker in
-        });
-        outputMarkers.push(marker);// add new marker to list of markers for clearing map later
-    }
-    return outputMarkers; // return list of markers created
-}
-
-
-/* deleteMarkers()
-* markerList - a list of marker objects to be deleted
-*
-* returns empty list
-*/
-function deleteMarkers(markerList){
-    for (var i = 0; i < markerList.length; i++) {
-          markerList[i].setMap(null); // null hides marker from current map
-    }
-    return []; // return a clear list
+    return poly; // return the polygon object
 }
