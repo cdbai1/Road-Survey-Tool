@@ -17,11 +17,11 @@
         <div id="map"></div> <!--Div which is used referenced for map location-->
         <hr>
         <div style="margin-left: 15%">
-          <select id="sizePicker" style="float:left">
+          <select id="sizeSelect" style="float:left">
             <option value="1">1km</option>
+            <option value="2">2km</option>
             <option value="5">5km</option>
             <option value="10">10km</option>
-            <option value="25">25km</option>
           </select>   
         </div>
         <button id="startBtn" style="float:right;margin-right: 15%">Find Road Area</button>
@@ -36,6 +36,9 @@
     
 
   <script src="scripts/map.js"></script> <!--Initialise the map object-->
+
+  <script src = "/socket.io/socket.io.js"></script> <!--Socket enabled-->
+
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9e944TTsuLO4ffAAaBA_1KR6NCHXZKW4&callback=initMap&libraries=geometry"
   type="text/javascript"></script> <!--Google Map API Key-->

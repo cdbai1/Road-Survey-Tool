@@ -2,10 +2,6 @@
 * initialises the google maps object
 * adds click listener to the map and handles clicks
 */
-
-var socket = io();
-var squarePoints = [];
-
 function initMap() { // initialise the google.maps Map object 
     var zoom = 14; // zoom level of the map    
     var dist = 1;
@@ -21,11 +17,10 @@ function initMap() { // initialise the google.maps Map object
     // generates a square on the map of size user selects 
     google.maps.event.addListener(map, 'click', function(event) {        
         activeSquare.setMap(null); // clear active square polygon from map
-
+        
         // list of points that make up the square
         var clickPoint = event.latLng; // latlng point of user click
-
-        squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
+        var squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
         console.log(dist);
 
         activeSquare = generatePolygon(squarePoints, map); // generate the square on the map and store object to clear later
