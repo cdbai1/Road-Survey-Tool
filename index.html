@@ -2,22 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My test page</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <title>Road Survey Tool</title>
+    <link rel='stylesheet' type='text/css'>
     <link href="styles/style.css" rel="stylesheet" type="text/css">
 
   </head>
   <body>
     <h1>Road Survey Tool</h1>
 
-    <div style="width:100%;height:100px"></div>
-    <div id="map"></div>
-    <div style="width:100%;height:200px"></div>
+    <div style="height:10px;margin:auto"></div> <!--Empty space for Layout-->
+    
+      
+      <div id=body1>
+        <div id="map"></div> <!--Div which is used referenced for map location-->
+        <hr>
+        <div style="margin-left: 15%">
+          <select id="sizePicker" style="float:left">
+            <option value="1">1km</option>
+            <option value="5">5km</option>
+            <option value="10">10km</option>
+            <option value="25">25km</option>
+          </select>   
+        </div>
+        <button id="startBtn" style="float:right;margin-right: 15%">Find Road Area</button>
+        <div style="height:20px"></div>
 
-    <script src="scripts/map.js"></script> <!--Initialise the map object-->
+    </div>
+    <div style="height:10px;margin:auto"></div> <!--Empty space for Layout-->
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9e944TTsuLO4ffAAaBA_1KR6NCHXZKW4&callback=initMap"
-    type="text/javascript"></script> <!--Google Map API Key-->
+  <div id=body2>
+  </div>
+
+    
+
+  <script src="scripts/map.js"></script> <!--Initialise the map object-->
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9e944TTsuLO4ffAAaBA_1KR6NCHXZKW4&callback=initMap&libraries=geometry"
+  type="text/javascript"></script> <!--Google Map API Key-->
 
   </body>
 </html>
