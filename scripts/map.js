@@ -2,9 +2,13 @@
 * initialises the google maps object
 * adds click listener to the map and handles clicks
 */
+
+var socket = io();
+var squarePoints = [];
+
 function initMap() { // initialise the google.maps Map object 
-    var zoom = 14; // zoom level of the map
-    var dist = 1; // distance in km one side of the square
+    var zoom = 14; // zoom level of the map    
+    var dist = 1;
     var classroomLatLng = {lat: -37.911223, lng: 145.130768}; // latitude and longitude location/coordinates
     var map = new google.maps.Map(document.getElementById('map'), { // initialise a new Map object
         zoom: zoom,
@@ -18,13 +22,28 @@ function initMap() { // initialise the google.maps Map object
     google.maps.event.addListener(map, 'click', function(event) {        
         activeSquare.setMap(null); // clear active square polygon from map
 
-        var squarePoints = []; // list of points that make up the square
+        // list of points that make up the square
         var clickPoint = event.latLng; // latlng point of user click
 
-        var squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
+        squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
+        console.log(dist);
 
         activeSquare = generatePolygon(squarePoints, map); // generate the square on the map and store object to clear later
     });
+    
+    // event listener for the size selecter being changed
+    var select = document.getElementById("sizeSelect");
+    select.addEventListener("change", function(){
+        dist = select.options[select.selectedIndex].value;
+    });
+
+    // event listener for start button being clicked
+    var button = document.getElementById("startBtn");
+    button.addEventListener("click", function(){
+        console.log("Button Clicked");
+        socket.emit("btnClick");
+    });
+
 };
 
 
@@ -44,9 +63,13 @@ function getSquarePath(centreLngLat, metres) {
     var se = google.maps.geometry.spherical.computeOffset(ne, metres, 180); // south of ne
     var sw = google.maps.geometry.spherical.computeOffset(se, metres, 270); // west of se
 
+    console.log(nw.lat(),nw.lng());
+    console.log(ne.lat(),ne.lng());
+    console.log(se.lat(),se.lng());
+    console.log(sw.lat(),sw.lng());
+
     return [nw, ne, se, sw]; // return the path which encloses the new square
 }
-
 
 /* generatePolygon()
 * polygonPoints - path of points around the edge of the polygon
@@ -67,3 +90,6 @@ function generatePolygon(polygonPoints, map){
 
     return poly; // return the polygon object
 }
+
+
+
