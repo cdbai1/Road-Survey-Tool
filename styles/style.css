@@ -15,27 +15,52 @@ html {
 
 #body1 {
   width: 70%;
+  height: 50%;
   margin: 0 auto;
   border-radius: 20px;
-  background-color: #FFFFFC;
+  background-color: #FFFFFF;
   padding: 2% 2%;
   border: 2px solid black;
 }
 
-#body2 {
-  width: 70%;
+
+#bloc1, #bloc2
+{
+	width: 33%;
+  height: 500px;
+  vertical-align: top;
+  text-align: center;
+	display: inline-block;
   margin: 0 auto;
   border-radius: 20px;
-  background-color: #FFFFFC;
+  background-color: #FFFFFF;
   padding: 2% 2%;
   border: 2px solid black;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 75%;
+}
+
+p {
+  font-size: 20px;
+  text-align: left;
+  position: relative;
+  top: 5%;
+  left: 30%;
+
 }
 
 h1 {
   margin: 0;
   font-size: 40px;
   text-align: center; 
-  color: #FFFFFC;
+  color: #FFFFFF;
   text-shadow: 3px 3px 1px black;
 }
 
@@ -46,7 +71,7 @@ img {
 
 #map {
     margin: 0 auto;
-    height: 400px;
+    height: 300px;
     width: 100%;
 }
 
@@ -55,7 +80,7 @@ img {
   border-radius: 5px;
   padding: 5px 5px;
   font-size: 30px;
-  color:#FFFFFC;
+  color:#FFFFFF;
   background-color: #00539F;
 }
 
@@ -64,6 +89,6 @@ img {
   border-radius: 5px;
   padding: 5px 5px;
   font-size: 30px;
-  color:#FFFFFC;
+  color:#FFFFFF;
   background-color: #00539F;
 }
