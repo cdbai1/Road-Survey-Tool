@@ -5,6 +5,7 @@
 function initMap() { // initialise the google.maps Map object 
     var zoom = 14; // zoom level of the map    
     var dist = 1;
+    var squarePoints = null;
     var classroomLatLng = {lat: -37.911223, lng: 145.130768}; // latitude and longitude location/coordinates
     var map = new google.maps.Map(document.getElementById('map'), { // initialise a new Map object
         zoom: zoom,
@@ -20,7 +21,7 @@ function initMap() { // initialise the google.maps Map object
         
         // list of points that make up the square
         var clickPoint = event.latLng; // latlng point of user click
-        var squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
+        squarePoints = getSquarePath(clickPoint, dist*1000); // get the array of latlng for square corners
         console.log(dist);
 
         activeSquare = generatePolygon(squarePoints, map); // generate the square on the map and store object to clear later
@@ -36,7 +37,9 @@ function initMap() { // initialise the google.maps Map object
     var button = document.getElementById("startBtn");
     button.addEventListener("click", function(){
         console.log("Button Clicked");
-        socket.emit("btnClick");
+        if(squarePoints != null){
+            generateMapURL(squarePoints);
+        }        
     });
 
 };
@@ -84,6 +87,21 @@ function generatePolygon(polygonPoints, map){
     poly.setMap(map); // activate on map
 
     return poly; // return the polygon object
+}
+
+/* generateMapURL()
+* polygonPoints - path of points around the edge of the selection
+*
+* returns the url for a Google Static Maps API image, containing a polygon with the dimensions provided
+*/
+function generateMapURL(polygonPoints){
+    var URL = "https://maps.googleapis.com/maps/api/staticmap?size=500x500&style=feature:all|element:labels|visibility:off&path=weight:0|fillcolor:0x000000";
+    for (var i=0; i < polygonPoints.length; i ++){
+        URL = URL + "|" + polygonPoints[i].lat() + "," + polygonPoints[i].lng();
+    }    
+    URL += "&key=AIzaSyA9e944TTsuLO4ffAAaBA_1KR6NCHXZKW4"; // API Key
+    console.log(URL);
+    return URL;
 }
 
 
