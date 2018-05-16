@@ -14,6 +14,9 @@ Socket.io (via npm), Socket.io Team 2018 - https://socket.io/
 
 */
 
+/*
+* Initialise required node modules
+*/
 var express = require('express'); // express to make an app which can see all of the files in the project
 var app = express(); // initialise app object
 var server = require('http').Server(app); // run server off of the app

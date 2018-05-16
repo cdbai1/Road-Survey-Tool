@@ -25,7 +25,7 @@ function initMap() { // initialise the google.maps Map object
     var squarePoints = null; // list of points that make up the square
     var clickPoint; // point where user clicks
     
-    // Google Map set up
+    // Google Maps Object Set Up
     var zoom = 14; // initial zoom level of the map  
     var classroomLatLng = {lat: -37.911223, lng: 145.130768}; // latitude and longitude location/coordinates
     var map = new google.maps.Map(document.getElementById('map'), { // initialise a new Map object
@@ -124,7 +124,7 @@ function generatePolygon(polygonPoints, map){
 */
 function generateMapURL(polygonPoints){
     // first part of url determines colour settings and hides labels
-    var URL = "https://maps.googleapis.com/maps/api/staticmap?size=500x500&style=feature:all|element:labels|visibility:off&style=feature:all|element:geometry|color:0x000000&style=feature:road|element:geometry|visibility:simplified|color:0xffffff&path=weight:0|fillcolor:0x4d5bf9";
+    var URL = "https://maps.googleapis.com/maps/api/staticmap?size=500x500&stle=transit|element:geometry|visibility:off&style=feature:all|element:labels|visibility:off&style=feature:all|element:geometry|color:0x000000&style=feature:road|element:geometry|visibility:simplified|color:0xffffff&path=weight:0|fillcolor:0x4d5bf9";
     for (var i=0; i < polygonPoints.length; i ++){ // for each point in the polygon
         URL = URL + "|" + polygonPoints[i].lat() + "," + polygonPoints[i].lng(); // append to the URL
     }    
