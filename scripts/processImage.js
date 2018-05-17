@@ -48,8 +48,7 @@ socket.on('btnClick', function(data){ // when the UI button click message has be
         imageSizePx = 333*333;
     }
 
-    croppedPx =  (500*500) - (edgeLengthPx*edgeLengthPx); // num of cropped pixels is equal to original 500px image subtract the no. px in the remaining content
-    pixelAreaKm = (edgeLengthKm/edgeLengthPx)*(edgeLengthKm/edgeLengthPx); // calculate area of one pixel in km2
+    pixelAreaKm = edgeLengthKm/imageSizePx; // calculate area of one pixel in km2
 
     // Display of outputs
     // Image object is created and initialised
@@ -74,8 +73,7 @@ socket.on('btnClick', function(data){ // when the UI button click message has be
         imgData = cropImage(imgData); // update image data with new cropped pic
         context.putImageData(imgData,0,0); // update the image data in the context
 
-        var nonRoadPx = getNonRoadPx(imgData.data);
-        roadPx = 250000 - croppedPx - nonRoadPx;  // get amount of pixels containing road by subtracting cropped pixels and non road pixels from total
+        roadPx = imageSizePx - getNonRoadPx(imgData.data);  // get amount of pixels containing road by subtracting cropped pixels and non road pixels from total
         
         roadKm =  roadPx * pixelAreaKm; // road area is number of road pixels times the area of 1 pixel
 
