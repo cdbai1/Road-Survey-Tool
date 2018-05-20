@@ -1,94 +1,82 @@
-html {
-  font-size: 10px;
+html { 
+  height: 100%;
+}
+
+body { height: 100%; 
+margin: 0px; 
+padding: 0px 
+}
+
+h1{
   font-family: 'Arial', sans-serif;
-}
-
-p, li {
-  font-size: 16px;  
-  line-height: 2;
-  letter-spacing: 1px;
-}
-
-html {
-  background-color: #c0cce0;
-}
-
-#body1 {
-  width: 70%;
-  height: 50%;
-  margin: 0 auto;
-  border-radius: 20px;
-  background-color: #FFFFFF;
-  padding: 2% 2%;
-  border: 2px solid black;
-}
-
-
-#bloc1, #bloc2
-{
-	width: 33%;
-  height: 500px;
-  vertical-align: top;
+  font-size: 30px;
+  color: #FFFFFF;
+  text-anchor: center;
   text-align: center;
-	display: inline-block;
-  margin: 0 auto;
-  border-radius: 20px;
-  background-color: #FFFFFF;
-  padding: 2% 2%;
-  border: 2px solid black;
 }
 
 canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 75%;
+ width: 100%;
+ align-content: center;
 }
 
-p {
-  font-size: 20px;
-  text-align: left;
-  position: relative;
-  top: 5%;
-  left: 30%;
-
-}
-
-h1 {
-  margin: 0;
-  font-size: 40px;
-  text-align: center; 
+p, a{
+  font-family: 'Arial', sans-serif;
   color: #FFFFFF;
-  text-shadow: 3px 3px 1px black;
 }
 
-img {
-  display: block;
-  margin: 0 auto;
+#container { 
+  width: 100%; 
+  height: 100% 
 }
 
 #map {
-    margin: 0 auto;
-    height: 300px;
-    width: 100%;
+   width: 80%; 
+   height: 100%;
+   float: left;
+}
+
+#sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: #222222;
+  float: right;
+}
+
+#inputs {
+  height:5%;
+}
+
+#outputText {
+  margin-left: 25%;
+}
+
+#outputText1, #outputText2, #outputText3{
+  font-size : 150%;
 }
 
 #startBtn{
   font-family: 'Arial', sans-serif;
+  width: 30%;
+  top: 50%;
+  margin-right: 15%;
+  float: right;
   border-radius: 5px;
   padding: 5px 5px;
-  font-size: 30px;
+  font-size: 100%;
   color:#FFFFFF;
-  background-color: #00539F;
+  background-color: #444444;
 }
 
 #sizeSelect{
   font-family: 'Arial', sans-serif;
+  width: 30%;
+  top: 50%;
+  margin-left: 15%;
+  float: left;
   border-radius: 5px;
   padding: 5px 5px;
-  font-size: 30px;
+  font-size: 100%;
   color:#FFFFFF;
-  background-color: #00539F;
+  background-color: #444444;
 }

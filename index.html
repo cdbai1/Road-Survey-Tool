@@ -8,50 +8,41 @@
 
   </head>
   <body>
-    <h1>Road Survey Tool</h1>
 
-    <div style="height:10px;margin:auto"></div> <!--Empty space for Layout-->
-    
-      
-      <div id=body1>
-        <div id="map"></div> <!--Div which is used referenced for map location-->
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar">
+        <br>
+        <h1> Road Survey Tool</h1>
+        <br>
         <hr>
-        <div style="margin-left: 15%">
-          <select id="sizeSelect" style="float:left">
-            <option value="1">1km</option>
-            <option value="2">2km</option>
-            <option value="5">5km</option>
-            <option value="10">10km</option>
-          </select>   
+        <div id="inputs">
+          <select id="sizeSelect">
+              <option value="1">1km</option>
+              <option value="2">2km</option>
+              <option value="5">5km</option>
+              <option value="10">10km</option>
+          </select> 
+          <button id="startBtn">Find Road Area</button>
         </div>
-        <button id="startBtn" style="float:right;margin-right:15%">Find Road Area</button>
-        <div style="height:20px"></div>
-
-    </div></div> <!--Empty space for Layout-->
-
-    <div id=bloc1 style="margin-left:13%;align-content:auto">     
-      <canvas id="outputMap">             
+        <hr>
+        <div id = "outputText">
+          <p style ="color: crimson">road area:</p>
+          <p id ="outputText1"> Click the button above!</p>
+          <p style ="color: crimson"> coordinates:</p>
+          <p id ="outputText2">lat: Click the map!<br>lng:</p> 
+          <p style ="color: crimson">selection size:</p> 
+          <p id ="outputText3"></p> 
+        </div> 
+        <canvas id="outputMap"></canvas>
+        <p style="position:absolute;bottom:0;right:0">(C) Callum Baird, 2018</p>                    
+        <a href="https://github.com/cdbai1/Road-Survey-Tool" target="_blank" style="position:absolute;bottom:0;right:0">Github</a>
+      </div>
     </div>
-    <div id=bloc2>
-      <p> road area:</p>
-      <p id ="outputText1" style="font-size:25px; color:#262d7c"> Click the button above!</p>
-      <p> coordinates:</p>
-      <p id ="outputText2" style="font-size:25px; color:#262d7c">lat: Click the map!<br>lng:</p> 
-      <p>selection size: </p> 
-      <p id ="outputText3" style="font-size:25px; color:#262d7c"></p> 
-    </div>
-
-    
-  
-
-    
 
   <script src="/socket.io/socket.io.js"></script> <!--Socket enabled-->
   <script src="scripts/map.js"></script> <!--Initialise the map object-->
-
   <script src="scripts/processImage.js"></script>
-
-
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9e944TTsuLO4ffAAaBA_1KR6NCHXZKW4&callback=initMap&libraries=geometry"
   type="text/javascript"></script> <!--Google Map API Key-->

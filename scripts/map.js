@@ -45,7 +45,7 @@ function initMap() { // initialise the google.maps Map object
         activeSquare = generatePolygon(squarePoints, map); // generate the square on the map and store object to clear later
 
         var lngLatText = document.getElementById("outputText2");
-        lngLatText.innerHTML = "lat: " + clickPoint.lat() +"<br>lng: " + clickPoint.lng();
+        lngLatText.innerHTML = "lat: " + (Math.round(clickPoint.lat()*1000)/1000) +"<br>lng: " + (Math.round(clickPoint.lng()*1000)/1000);
 
         var sizeText = document.getElementById("outputText3");
         sizeText.innerHTML = size + "km<sup>2</sup>";
