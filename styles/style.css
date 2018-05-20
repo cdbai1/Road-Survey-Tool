@@ -9,7 +9,7 @@ padding: 0px
 
 h1{
   font-family: 'Arial', sans-serif;
-  font-size: 30px;
+  font-size: 200%;
   color: #FFFFFF;
   text-anchor: center;
   text-align: center;
@@ -29,6 +29,7 @@ canvas {
 p, a{
   font-family: 'Arial', sans-serif;
   color: #FFFFFF;
+  font-size: 80%;
 }
 
 #container { 
@@ -58,7 +59,7 @@ p, a{
 }
 
 #outputText1, #outputText2, #outputText3{
-  font-size : 150%;
+  font-size : 100%;
 }
 
 #startBtn{
@@ -69,7 +70,7 @@ p, a{
   float: right;
   border-radius: 5px;
   padding: 5px 5px;
-  font-size: 100%;
+  font-size: 80%;
   color:#FFFFFF;
   background-color: #444444;
 }
@@ -82,7 +83,7 @@ p, a{
   float: left;
   border-radius: 5px;
   padding: 5px 5px;
-  font-size: 100%;
+  font-size: 80%;
   color:#FFFFFF;
   background-color: #444444;
 }
