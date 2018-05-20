@@ -13,7 +13,6 @@ Socket.io (via npm), Socket.io Team 2018 - https://socket.io/
 
 */
 
-
 /*initMap()
 * initialises the google maps object
 * adds click listener to the map and handles clicks
@@ -83,6 +82,9 @@ function initMap() { // initialise the google.maps Map object
 * returns the path of points which enclose a square around the centreLngLat provided
 */
 function getSquarePath(centreLngLat, metres) {
+    if(centreLngLat.lng()<-180 || centreLngLat.lat()<-180 || centreLngLat.lng()>180 || centreLngLat.lat()>180 || metres<=0){
+        return(false);
+    }
     // find nw corner by going west 1/2 dist and north 1/2 dist
     var nw = google.maps.geometry.spherical.computeOffset(centreLngLat, metres/2, 270);// west of centre
     nw = google.maps.geometry.spherical.computeOffset(nw, metres/2, 0); // nw of centre

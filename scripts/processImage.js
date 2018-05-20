@@ -73,8 +73,7 @@ socket.on('btnClick', function(data){ // when the UI button click message has be
         imgData = cropImage(imgData); // update image data with new cropped pic
         context.putImageData(imgData,0,0); // update the image data in the context
 
-        roadPx = imageSizePx - getNonRoadPx(imgData.data);  // get amount of pixels containing road by subtracting cropped pixels and non road pixels from total
-        
+        roadPx = imageSizePx - getNonRoadPx(imgData.data);  // get amount of pixels containing road by subtracting cropped pixels and non road pixels from total        
         roadKm =  roadPx * pixelAreaKm; // road area is number of road pixels times the area of 1 pixel
 
         if(roadKm < edgeLengthKm*edgeLengthKm*0.005 && edgeLengthKm > 1){ // adjust output to zero if within the margin of error
@@ -125,8 +124,8 @@ function cropImage(imageData){
 function getNonRoadPx(pixelData){
     pixelArray = pixelData;
     pxCount = 0;
-    for(var i=0; i<pixelArray.length; i+=4){
-        if(pixelArray[i] == 38 && pixelArray[i+1] == 45 && pixelArray[i+2] == 124){
+    for(var i=0; i<pixelArray.length; i+=4){ // iterate over pixels
+        if(pixelArray[i] == 38 && pixelArray[i+1] == 45 && pixelArray[i+2] == 124){ // (r,g,b) == (38,45,124)
             pxCount +=1;           
         }
     }
