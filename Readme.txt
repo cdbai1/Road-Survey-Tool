@@ -1,6 +1,6 @@
 ******************************************
 FIT 3036 - Road Survey Tool
-(c) Callum Baird 2016
+(c) Callum Baird 2018
 
 Utilitsed libraries and frameworks:
     node.js: https://nodejs.org/
