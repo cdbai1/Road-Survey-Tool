@@ -1,9 +1,28 @@
 {
   "name": "roadsurveytool",
   "version": "1.0.0",
+  "description": "A web app which allows users to select an area on Google Maps, and display how many square km of road is in that area.",
   "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdbai1/Road-Survey-Tool.git"
+  },
+  "author": "Callum Baird 26163888",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdbai1/Road-Survey-Tool/issues"
+  },
+  "homepage": "https://github.com/cdbai1/Road-Survey-Tool#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mocha": "^5.2.0",
+    "socket.io": "^2.1.1"
   }
 }
