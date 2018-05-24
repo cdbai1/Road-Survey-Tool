@@ -76,9 +76,9 @@ socket.on('btnClick', function(data){ // when the UI button click message has be
         roadPx = imageSizePx - getNonRoadPx(imgData.data);  // get amount of pixels containing road by subtracting cropped pixels and non road pixels from total        
         roadKm =  roadPx * pixelAreaKm; // road area is number of road pixels times the area of 1 pixel
 
-        if(roadKm < edgeLengthKm*edgeLengthKm*0.005 && edgeLengthKm > 1){ // adjust output to zero if within the margin of error
+        if(roadKm < edgeLengthKm*edgeLengthKm*0.005 && edgeLengthKm == 2){ // adjust output to zero if within the margin of error
             roadKm = 0;
-        }else if(roadKm < edgeLengthKm*edgeLengthKm*0.015){
+        }else if(roadKm < edgeLengthKm*edgeLengthKm*0.010){
             roadKm = 0;
         }
 
